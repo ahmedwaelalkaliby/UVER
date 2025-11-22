@@ -38,15 +38,14 @@ export default function TheFirstSection() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!phoneRef.current) return;
-      const { innerWidth, innerHeight } = window;
-      const x = (e.clientX / innerWidth - 0.5) * 20;
-      const y = -(e.clientY / innerHeight - 0.5) * 20;
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = -(e.clientY / window.innerHeight - 0.5) * 20;
       gsap.to(phoneRef.current, {
         rotateY: x,
         rotateX: y,
         transformPerspective: 600,
         ease: "power1.out",
-        duration: 0.3,
+        duration: 0.5,
       });
     };
 
@@ -66,7 +65,7 @@ export default function TheFirstSection() {
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 0.5,
           ease: "power2.out",
           scrollTrigger: {
             trigger: el,
@@ -81,45 +80,50 @@ export default function TheFirstSection() {
 
   return (
     <section
-      ref={sectionRef}
-      className="relative overflow-hidden w-full flex justify-center items-center py-10"
-      >
-      <div className="max-w-7xl w-full flex flex-col items-center gap-12 lg:flex-row lg:justify-between lg:items-center">
+  ref={sectionRef}
+  className=" relative overflow-hidden w-full min-h-screen flex justify-center items-center px-3 10 py-10"
+>
+  <div className="container mx-auto w-full flex flex-col gap-12 lg:flex-row lg:justify-between lg:items-center">
 
-        {/* LEFT TEXT */}
-        <div className="flex flex-col max-w-sm text-center lg:text-left animate">
-          <p className="text-2xl leading-relaxed">
-            Discover, apply, succeed – UVER makes college search effortless.
-            Your future starts right here.
-          </p>
+    {/* LEFT TEXT */}
+    <div className="flex flex-col max-w-sm text-left animate">
+      <p className="text-2xl leading-relaxed">
+        Discover, apply, succeed – UVER makes college search effortless.
+        Your future starts right here.
+      </p>
 
-          <div className="mt-6">
-            <p className="text-2xl mb-2">⏳ Launching starts in</p>
-            <div className="flex justify-center lg:justify-start gap-3 text-4xl font-semibold">
-              <span>{days}</span> : <span>{hours}</span> : <span>{minutes}</span>
-            </div>
-            <p className="text-xs mt-1">days  hours  minutes</p>
-          </div>
+      <div className="mt-6">
+        <p className="text-2xl mb-2">⏳ Launching starts in</p>
+
+        {/* LEFT aligned countdown */}
+        <div className="flex justify-start gap-3 text-4xl font-semibold">
+          <span>{days}</span> : <span>{hours}</span> : <span>{minutes}</span>
         </div>
 
-        {/* PHONE MOCKUP */}
-        <div ref={phoneRef} className="will-change-transform animate">
-          <MobileMockup />
-        </div>
-
-        {/* RIGHT ICON LIST */}
-        <div className="flex flex-col gap-4 text-2xl text-center lg:text-left animate">
-          <p>🔍 SEARCH</p>
-          <p>💬 CHAT</p>
-          <p>📄 APPLY</p>
-          <p>👀 TRACK</p>
-        </div>
-          </div>
-          
-          {/* background text */}
-        <div className="absolute -bottom-30  left-1/2 tracking-[15rem] -translate-x-1/2 text-gray-200 text-[300px] font-extrabold -z-10 select-none">
-        UVER
+        <p className="text-xs mt-1">days  hours  minutes</p>
       </div>
-    </section>
+    </div>
+
+    {/* PHONE MOCKUP */}
+    <div ref={phoneRef} className="will-change-transform animate">
+      <MobileMockup />
+    </div>
+
+    {/* RIGHT ICON LIST */}
+    <div className="flex flex-col gap-4 text-2xl text-left animate">
+      <p>🔍 SEARCH</p>
+      <p>💬 CHAT</p>
+      <p>📄 APPLY</p>
+      <p>👀 TRACK</p>
+    </div>
+
+  </div>
+
+  {/* background text */}
+  <div className="absolute container -bottom-30 left-1/2 tracking-[15rem] -translate-x-1/2 text-gray-200 text-[300px] font-extrabold -z-10 select-none">
+    UVER
+  </div>
+</section>
+
   );
 }
