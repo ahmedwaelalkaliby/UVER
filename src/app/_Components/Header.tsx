@@ -1,5 +1,7 @@
 "use client"; 
 import { IoIosMenu } from "react-icons/io";
+import { CiMobile4 } from "react-icons/ci";
+
 
 export default function Header() {
 
@@ -13,6 +15,7 @@ export default function Header() {
       </button>
       <button className=" md: inline-block bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:scale-105 transition-transform">
         Get Early Access
+        <CiMobile4 size={20} className="inline-block ml-2 mb-1"/>
       </button>
     </header>   
   )
