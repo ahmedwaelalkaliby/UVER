@@ -1,4 +1,5 @@
-🛍️ # UVER
+# UVER
+
 A full-featured Next.js 13+ using TypeScript and GSAP for animations. This app demonstrates Landing Page to help users find their ideal College.
 
 🚀 Live Demo
