@@ -21,12 +21,13 @@ git clone https://github.com/ahmedwaelalkaliby/UVER
 
 Install dependencies:
 npm install
-# or
+ or
 yarn install
 Start the development server:
 npm run dev
-# or
+ or
 yarn dev
 Open your browser at http://localhost:3000
 🎨 Styling
+
 Tailwind CSS is used for a modern, responsive UI.
