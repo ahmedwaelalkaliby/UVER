@@ -54,11 +54,7 @@ export default function CollegeApplication() {
   </div>
 
   {/* single screen section - takes 2 columns on large screens */}
-<div
-  className="group relative w-full lg:col-span-2
-             h-[300px] sm:h-[300px] md:h-[400px] lg:h-[950px] 
-             rounded-3xl shadow-lg overflow-hidden"
->
+<div className="group relative w-full lg:col-span-2 h-[300px] sm:h-[300px] md:h-[400px] lg:h-[950px] rounded-3xl shadow-lg overflow-hidden">
   {/* Background image with hover scale - wrapped in its own container */}
   <div className="absolute inset-0 overflow-hidden rounded-3xl">
     <div
@@ -86,6 +82,7 @@ export default function CollegeApplication() {
       
       {/* Arrow button */}
       <a  href="#" className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white flex items-center justify-center hover:scale-110 transition-transform duration-300">
+        <span></span>
         <IoArrowForward />
       </a>
     </div>
