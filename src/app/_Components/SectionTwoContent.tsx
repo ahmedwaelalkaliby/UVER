@@ -47,11 +47,11 @@ export default function ComprehensiveContentAndHeader({
     <div className="space-y-6" ref={container}>
       <h1
         ref={headerRef}
-        className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white"
+        className="text-4xl md:text-5xl lg:text-6xl font-bold  text-white"
       >
         {header}
       </h1>
-      <p ref={contentRef} className="text-gray-300 text-xl max-w-lg leading-relaxed">
+      <p ref={contentRef} className="text-gray-300 text-xl max-w-lg ">
         {content}
       </p>
     </div>

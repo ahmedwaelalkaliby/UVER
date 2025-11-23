@@ -163,46 +163,50 @@ export default function TheSecondSection() {
   }, []);
 
   return (
-    <section ref={container} className="flex items-center justify-center min-h-screen bg-zinc-900">
-      <div className="container mx-auto px-4 py-10 lg:p-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center lg:justify-between lg:items-center ">
-          {/* Left Panel */}
-          <div className="flex flex-col space-y-12">
-            <nav className="flex flex-col space-y-3">
-              {NAV_ITEMS.map((item) => (
-                <p
-                  key={item.id}
-                  className={`pl-4 border-l-2 transition-colors duration-300 ${
-                    activeSection === item.id
-                      ? "text-white text-2xl font-semibold border-blue-500 active"
-                      : "text-gray-400 text-2xl hover:text-white border-transparent"
-                  }`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setActiveSection(item.id);
-                  }}
-                >
-                  {item.label}
-                </p>
-              ))}
-            </nav>
+<section ref={container} className="min-h-screen bg-zinc-900 flex items-center justify-center">
+  <div className="container mx-auto px-4 py-10 lg:p-8">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-10 items-start">
+      
+      {/* Nav */}
+      <nav className="flex flex-col space-y-3">
+        {NAV_ITEMS.map((item) => (
+          <p
+            key={item.id}
+            className={`pl-4 border-l-2 transition-colors duration-300 ${
+              activeSection === item.id
+                ? "text-white text-3xl font-semibold border-blue-500 active"
+                : "text-gray-400 text-2xl hover:text-white border-transparent"
+            }`}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveSection(item.id);
+            }}
+          >
+            {item.label}
+          </p>
+        ))}
+      </nav>
 
-            <SectionTwoContent
-              content={NAV_ITEMS[activeSection - 1].content}
-              header={NAV_ITEMS[activeSection - 1].header}
-            />
+      {/*  Content */}
+      <div className="flex flex-col space-y-12">
+        <SectionTwoContent
+          content={NAV_ITEMS[activeSection - 1].content}
+          header={NAV_ITEMS[activeSection - 1].header}
+        />
 
-            <div className="flex items-center text-neutral-500">
-              <MdOutlineMouse className="mouse-indicator mr-2" size={24} />
-            </div>
-          </div>
-
-          {/* Right Panel (Mobile Mockup) */}
-          <div ref={mockupRef}>
-            <MobileMockup {...({ activeSection } as any)} />
-          </div>
+        <div className="flex items-center text-neutral-500">
+          <MdOutlineMouse className="mouse-indicator mr-2" size={24} />
         </div>
       </div>
-    </section>
+
+      {/* Mobile Mockup */}
+      <div ref={mockupRef}>
+        <MobileMockup {...({ activeSection } as any)} />
+      </div>
+
+    </div>
+  </div>
+</section>
+
   );
 }

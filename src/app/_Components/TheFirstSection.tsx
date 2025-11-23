@@ -6,19 +6,26 @@ import MobileMockup from "./MobileMockup";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Countdown hook
+// Countdown hook (deterministic initial value to avoid SSR/client hydration mismatch)
 const useCountdown = (targetDate: string) => {
   const countDownDate = new Date(targetDate).getTime();
-  const [countDown, setCountDown] = useState(
-    countDownDate - new Date().getTime()
-  );
+  // Start with a deterministic initial value (0) so server and client render the same markup
+  const [countDown, setCountDown] = useState<number>(0);
 
   useEffect(() => {
+    // Defer the initial update to avoid a synchronous setState inside the effect
+    const initTimeout = setTimeout(() => {
+      setCountDown(countDownDate - Date.now());
+    }, 0);
+
     const interval = setInterval(() => {
       setCountDown(countDownDate - Date.now());
     }, 1000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(initTimeout);
+      clearInterval(interval);
+    };
   }, [countDownDate]);
 
   return {
