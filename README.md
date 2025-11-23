@@ -28,6 +28,8 @@ npm run dev
  or
 yarn dev
 Open your browser at http://localhost:3000
+
 🎨 Styling
+
 
 Tailwind CSS is used for a modern, responsive UI.

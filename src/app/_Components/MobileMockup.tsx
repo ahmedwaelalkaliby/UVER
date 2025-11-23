@@ -33,7 +33,7 @@ function MobileMockup() {
       <div className="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
       <div className="overflow-hidden bg-white dark:bg-gray-800">
         <Image
-          src="/mobileImage.png"
+          src="/app-photo.png"
           fill
           className="rounded-2xl"
           alt="mobile screen"
